@@ -21,7 +21,7 @@ GREY = (128, 128, 128)
 TURQUOISE = (64, 224, 208)
 
 
-#every sqaure in the grid is obj
+#every sqaure in the grid is an object of class Spot
 class Spot:
 	def __init__(self, row, col, width, total_rows):
 		self.row = row
@@ -93,7 +93,7 @@ class Spot:
 		return False
 
 
-def h(p1, p2):
+def h(p1, p2): #heuristic function 
 	x1, y1 = p1
 	x2, y2 = p2
 	return abs(x1 - x2) + abs(y1 - y2)
@@ -107,7 +107,7 @@ def reconstruct_path(came_from, current, draw):
 		draw()
 
 
-def algorithm(draw, grid, start, end):
+def algorithm(draw, grid, start, end):   # a-star from scratch
 	count = 0
 	open_set = PriorityQueue()
 	open_set.put((0, count, start))
